@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy MyApp
+      - name: Deploy
         run: npm run deploy
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
