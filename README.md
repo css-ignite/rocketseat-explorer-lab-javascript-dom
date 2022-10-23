@@ -97,15 +97,19 @@ git push origin master
 
 ### Iniciando o Projeto (Novo)
 
-- Utilize este comando para criar um Novo projeto do ZERO
+Utilize este comando para criar um Novo projeto do ZERO caso necessário
 
 ```bash
 npm create vite@latest
 ```
 
-### Iniciando o Projeto (Clone)
+## Iniciando o Projeto (Clone do repositório do Myke)
 
-- Utilize este comando para iniciar um repositório clonado
+Fork que Fiz do Repositório Oficial:
+
+- [explorer-lab-01: Javascript e DOM](https://github.com/claudneysessa/fork-rocketseat-explorer-lab-01)
+
+Utilize este comando para iniciar um repositório clonado
 
 ```bash
 npm i
@@ -143,7 +147,7 @@ import IMask from "imask"
 const re = /foo/;
 ```
 
-### Criando uma expressão regular via construtora
+### Criando uma expressão regular via função construtora
 
 - Chamando a função construtora do RegExp
 
@@ -151,11 +155,119 @@ const re = /foo/;
 const re = new RegExp(/foo/);
 ```
 
-## Projeto publicado GitHub Pages
+## Publicando na Vercel
 
-## Projeto publicado na Vercel
+Projeto publicado na Vercel conforme instruções do Explorer
+
+Link
+- [https://vercel.com/](https://vercel.com/)
+
+Passo a Passo:
+
+1. Cadastre-se na vercel
+2. Efetue o login vinculando a conta da vercel com a seua conta do GitHub
+3. Crie um novo projeto e aponte ele para o seu repositório no GitHub
+   * Em alguns casos será necessário permitir que a vercel veja seu repositorio
+4. Clique em Deploy
+
+### Projeto publicado na Vercel (Oficial do Explorer-Lab-01)
 
 - [https://rocketseat-explorer-lab-javascript-dom.vercel.app/](https://rocketseat-explorer-lab-javascript-dom.vercel.app/)
+
+## Publicando no GitHub Pages
+
+Teste adicional feito para verificar como fica a publicação no gh-pages
+
+### instalando o plugin-react para o vite
+
+```bash
+npm i @vitejs/plugin-react
+```
+
+### Criando o vite.config.js
+
+Defina no arquivo de configurações da propriedade base para "/rocketseat-explorer-lab-javascript-dom/"
+
+```JavaScript	
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  base: "/rocketseat-explorer-lab-javascript-dom/",
+  plugins: [react()],
+})
+```
+
+### Ajustes no package.json
+
+```JSON
+{
+  "name": "projeto-base",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 8080",
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0",
+    "vite": "^3.1.0"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^2.1.0",
+    "imask": "^6.4.3"
+  }
+}
+```
+
+### Gerando o build e o deploy da página estatica
+
+```bash
+run build
+```
+
+### Verificar o preview gerado
+
+```bash
+run preview
+```
+
+### Adicionando a pasta dist ao repositório
+
+Antes deste passo remova dist do .gitignore
+
+```bash
+git add dist -f
+```
+
+### Faça o commit da pasta dist
+
+```bash
+git commit -m "Adding dist"
+```
+
+### Gerando a branch gh-pages
+
+```bash
+git subtree push --prefix dist origin gh-pages
+```
+
+### Deploy final no gh-pages
+
+Para realizar o Deployed da sua página, entre no seu repositório.
+
+Siga os passos a baixo:
+
+1. Navegue até a página Settings.
+2. Role a página para baixo até a guia Pages.
+3. Faça o link do GitHub pages com seu repositório estatico.
+
+### Projeto publicado GitHub Pages
+
+- [https://claudneysessa.github.io/rocketseat-explorer-lab-javascript-dom/](https://claudneysessa.github.io/rocketseat-explorer-lab-javascript-dom/)
 
 ## Licença
 
