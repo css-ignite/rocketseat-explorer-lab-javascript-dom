@@ -21,9 +21,6 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Account
-        run: Omit --global
-
       - name: Build
         run: npm run build
 
